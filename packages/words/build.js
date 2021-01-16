@@ -4,24 +4,25 @@ import { en as naughtyWords } from 'naughty-words'
 import { fileURLToPath } from 'url'
 
 const getAbsolutePath = file => resolve(dirname(fileURLToPath(import.meta.url)), file)
-const normalize = word => word.toLowerCase()
+const normalize = word => word.toLowerCase().trim()
 const readList = filePath => readFileSync(filePath).toString('utf-8').split('\n')
 
 const wordsPath = getAbsolutePath('./src/words.txt')
 const words = readList(wordsPath)
 
-const deduped = Array.from(new Set(words))
+const normalized = words.map(normalize)
 
-const normalized = deduped.map(normalize)
+const deduped = Array.from(new Set(normalized))
 
-const disallowedWords = readList(getAbsolutePath('./src/disallow.txt')).concat(naughtyWords)
-const disallowSet = new Set(disallowedWords.map(normalize))
+const disallowedWords = naughtyWords
+    .concat(readList(getAbsolutePath('./src/disallow.txt')))
+    .concat(readList(getAbsolutePath('./src/homophones.txt')))
+    .map(normalize)
 
-const homophones = readList(getAbsolutePath('./src/homophones.txt'))
-const homophonesSet = new Set(homophones.map(normalize))
+const disallowSet = new Set(disallowedWords)
 
-const safe = normalized.filter(word => {
-    return word.match(/^[a-z]+$/) && !disallowSet.has(word) && !homophonesSet.has(word)
+const safe = deduped.filter(word => {
+    return word.match(/^[a-z]+$/) && !disallowSet.has(word)
 })
 
 const dist = getAbsolutePath('./dist')
