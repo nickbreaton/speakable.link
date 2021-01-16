@@ -22,7 +22,7 @@ const disallowedWords = naughtyWords
 const disallowSet = new Set(disallowedWords)
 
 const safe = deduped.filter(word => {
-    return word.match(/^[a-z]+$/) && !disallowSet.has(word)
+    return word.match(/^[a-z]+$/) && word.length > 2 && !disallowSet.has(word)
 })
 
 const dist = getAbsolutePath('./dist')
@@ -31,6 +31,6 @@ try { mkdirSync(dist) } catch (_) { /* ignore */ }
 
 writeFileSync(wordsPath, safe.sort().join('\n'))
 writeFileSync(resolve(dist, 'index.js'), `
-export const words = ${JSON.stringify(safe)}
-export const disallow = ${JSON.stringify(disallowedWords)}
+    export const words = ${JSON.stringify(safe)}
+    export const disallow = ${JSON.stringify(disallowedWords)}
 `)
