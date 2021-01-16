@@ -1,0 +1,10 @@
+{
+    "main": "dist/index.js",
+    "type": "module",
+    "scripts": {
+        "build": "node build.js"
+    },
+    "dependencies": {
+        "naughty-words": "^1.2.0"
+    }
+}
