@@ -32,5 +32,4 @@ try { mkdirSync(dist) } catch (_) { /* ignore */ }
 writeFileSync(wordsPath, safe.sort().join('\n'))
 writeFileSync(resolve(dist, 'index.js'), `
     export const words = ${JSON.stringify(safe)}
-    export const disallow = ${JSON.stringify(disallowedWords)}
 `)
