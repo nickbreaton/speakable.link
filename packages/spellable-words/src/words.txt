@@ -66,6 +66,7 @@ application
 appointment
 approach
 approval
+april
 area
 argument
 arm
@@ -95,6 +96,7 @@ attempt
 attention
 attitude
 audience
+august
 author
 authority
 autumn
@@ -454,6 +456,7 @@ death
 debate
 debt
 decade
+december
 decision
 decline
 deep
@@ -519,7 +522,6 @@ dolphin
 donkey
 door
 dot
-dotterel
 double
 doubt
 dove
@@ -651,6 +653,7 @@ father
 fault
 fear
 feature
+february
 fee
 feed
 feedback
@@ -826,6 +829,7 @@ homework
 honest
 honey
 hook
+hop
 hope
 hornet
 horrible
@@ -909,6 +913,7 @@ jack
 jacket
 jaguar
 jane
+january
 japan
 jar
 jay
@@ -924,7 +929,9 @@ jones
 journey
 judge
 juice
+july
 jump
+june
 junior
 jury
 justice
@@ -966,6 +973,7 @@ leader
 leadership
 leading
 league
+leap
 learn
 leather
 leave
@@ -1152,6 +1160,7 @@ nothing
 notice
 notion
 novel
+november
 number
 nurse
 nut
@@ -1159,6 +1168,7 @@ object
 objective
 obligation
 occasion
+october
 octopus
 odd
 off
@@ -1175,7 +1185,6 @@ only
 opening
 operation
 opinion
-opossum
 opportunity
 opposite
 opposition
@@ -1184,7 +1193,6 @@ orange
 order
 ordinary
 original
-ostrich
 other
 others
 otter
@@ -1524,6 +1532,7 @@ selfish
 senior
 sensitive
 sentence
+september
 sequence
 series
 serious
@@ -1884,7 +1893,6 @@ western
 wet
 what
 wheat
-whereas
 while
 white
 who
