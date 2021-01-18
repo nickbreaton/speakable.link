@@ -521,7 +521,6 @@ doll
 dolphin
 donkey
 door
-dot
 double
 doubt
 dove
@@ -1251,7 +1250,6 @@ percentage
 perception
 perfect
 performance
-period
 permission
 permit
 person

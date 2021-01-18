@@ -1,3 +1,10 @@
 link
+links
 speak
 speakable
+app
+dot
+comma
+period
+slash
+quote
