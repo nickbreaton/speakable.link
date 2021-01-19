@@ -11,5 +11,8 @@ module.exports = {
             { target: "es2018", preloadModules: true },
         ],
     ],
-    routes: [{ match: "routes", src: ".*", dest: "/index.html" }],
+    routes: [{ match: "routes", src: ".*", dest: "/_app/index.html" }],
+    mount: {
+        src: "/_app",
+    },
 }
