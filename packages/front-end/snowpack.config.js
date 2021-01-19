@@ -6,6 +6,10 @@ module.exports = {
         "@snowpack/plugin-typescript",
         "@snowpack/plugin-svelte",
         "@snowpack/plugin-postcss",
+        [
+            "@snowpack/plugin-optimize",
+            { target: "es2018", preloadModules: true },
+        ],
     ],
     routes: [{ match: "routes", src: ".*", dest: "/index.html" }],
 }

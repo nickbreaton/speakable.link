@@ -2,7 +2,6 @@
     "extends": "@tsconfig/svelte/tsconfig.json",
     "compilerOptions": {
         "strict": true,
-        "noUncheckedIndexedAccess": true,
-        "target": "ES2018"
+        "noUncheckedIndexedAccess": true
     }
 }
