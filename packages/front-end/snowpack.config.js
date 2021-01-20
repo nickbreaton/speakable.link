@@ -2,16 +2,21 @@
  * @type {import('snowpack').SnowpackConfig}
  */
 module.exports = {
+    buildOptions: {
+        baseUrl: "https://speakable-link.firebaseapp.com/"
+    },
     plugins: [
         "@snowpack/plugin-typescript",
         "@snowpack/plugin-svelte",
         "@snowpack/plugin-postcss",
         [
-            "@snowpack/plugin-optimize",
-            { target: "es2018", preloadModules: true },
-        ],
+            "@snowpack/plugin-webpack",
+            { outputPattern: { js: "_app/[name].[hash].js", css: "_app/[name].[hash].css" } }
+        ]
     ],
-    routes: [{ match: "routes", src: ".*", dest: "/_app/index.html" }],
+    routes: [
+        { match: "routes", src: ".*", dest: "/_app/index.html" }
+    ],
     mount: {
         src: "/_app",
     },

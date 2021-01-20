@@ -1,7 +1,6 @@
 {
   "scripts": {
     "start": "snowpack dev",
-    "start:production": "serve build",
     "build": "rimraf build && snowpack build",
     "predeploy": "npm run build",
     "deploy": "firebase deploy --only hosting"
@@ -28,5 +27,8 @@
     "tailwindcss": "^2.0.2",
     "tinro": "^0.5.7",
     "typescript": "^4.1.3"
+  },
+  "devDependencies": {
+    "@snowpack/plugin-webpack": "^2.3.0"
   }
 }
