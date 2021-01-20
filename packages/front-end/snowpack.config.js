@@ -9,10 +9,8 @@ module.exports = {
         "@snowpack/plugin-typescript",
         "@snowpack/plugin-svelte",
         "@snowpack/plugin-postcss",
-        [
-            "@snowpack/plugin-webpack",
-            { outputPattern: { js: "_app/[name].[hash].js", css: "_app/[name].[hash].css" } }
-        ]
+        "@snowpack/plugin-optimize",
+        ["snowpack-plugin-content-hash", { exts: ['.css', '.js'] }],
     ],
     routes: [
         { match: "routes", src: ".*", dest: "/_app/index.html" }
