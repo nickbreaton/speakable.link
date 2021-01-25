@@ -3,7 +3,7 @@
  */
 module.exports = {
     buildOptions: {
-        baseUrl: "https://speakable-link.web.app/"
+        baseUrl: "https://speakable-link.firebaseapp.com"
     },
     plugins: [
         "@snowpack/plugin-typescript",
