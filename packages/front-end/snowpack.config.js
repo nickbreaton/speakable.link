@@ -11,13 +11,13 @@ module.exports = {
         "@snowpack/plugin-postcss",
         [
             "@snowpack/plugin-webpack",
-            { outputPattern: { js: "_app/[name].[hash].js", css: "_app/[name].[hash].css" } }
+            { outputPattern: { js: "[name].[hash].js", css: "[name].[hash].css" } }
         ]
     ],
     routes: [
-        { match: "routes", src: ".*", dest: "/_app/index.html" }
+        { match: "routes", src: ".*", dest: "/index.html" }
     ],
     mount: {
-        src: "/_app",
+        src: "/",
     },
 }
