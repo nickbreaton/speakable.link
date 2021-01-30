@@ -16,7 +16,7 @@ async function handleRequest(event: FetchEvent) {
         return new Response(null, {
             status: 303,
             headers: {
-                Location: "https://www.google.com",
+                Location: "https://www.bing.com",
             },
         })
     }

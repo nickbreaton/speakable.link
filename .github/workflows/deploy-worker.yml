@@ -12,8 +12,6 @@ jobs:
               working-directory: packages/worker
             - run: npm i --no-save @cloudflare/wrangler # already installed locally as well due to Apple M1 workaround
               working-directory: packages/worker
-            # - name: Setup tmate session
-            #   uses: mxschmitt/action-tmate@v3
             - run: npm run publish
               working-directory: packages/worker
               env:
