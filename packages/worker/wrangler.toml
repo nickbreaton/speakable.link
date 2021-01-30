@@ -1,4 +1,4 @@
-name = "worker"
+name = "speakable-link"
 type = "javascript"
 account_id = "f3541ea32e5c687173fa7b87bfdf4529"
 workers_dev = true

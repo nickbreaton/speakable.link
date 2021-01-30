@@ -2,7 +2,9 @@
   "main": "dist/worker.js",
   "scripts": {
     "start": "wrangler dev",
+    "compile": "tsc",
     "compile:watch": "tsc --watch",
+    "prepublish": "npm run compile",
     "publish": "wrangler publish --env production"
   },
   "devDependencies": {
