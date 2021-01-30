@@ -8,7 +8,7 @@
         speakable.link
     </h1>
     <span class="text-lg mb-4">
-        Generate easy-to-say links instantly!
+        Generate easy-to-speak links instantly!
     </span>
-    <GoogleButton on:click={$auth.signIn} />
+    <GoogleButton on:click={() => $auth.signIn()} />
 </div>

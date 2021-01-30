@@ -1,0 +1,12 @@
+{
+  "main": "dist/worker.js",
+  "scripts": {
+    "start": "wrangler dev",
+    "compile:watch": "tsc --watch",
+    "publish": "wrangler publish --env production"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^2.1.0",
+    "typescript": "^4.1.3"
+  }
+}

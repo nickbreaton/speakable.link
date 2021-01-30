@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "rootDir": "src",
+        "outDir": "dist",
+        "lib": ["esnext", "webworker"],
+        "types": ["@cloudflare/workers-types"]
+    }
+}
