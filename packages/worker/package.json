@@ -1,5 +1,6 @@
 {
   "main": "dist/worker.js",
+  "name": "@speakable.link/worker",
   "scripts": {
     "start": "wrangler dev",
     "compile": "tsc",

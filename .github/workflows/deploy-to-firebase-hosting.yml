@@ -12,9 +12,9 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - run: npm ci
-              working-directory: packages/front-end
+              working-directory: packages/client
             - run: npm run build
-              working-directory: packages/front-end
+              working-directory: packages/client
             - uses: FirebaseExtended/action-hosting-deploy@v0
               with:
                   repoToken: "${{ secrets.GITHUB_TOKEN }}"

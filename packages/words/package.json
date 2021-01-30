@@ -1,5 +1,5 @@
 {
-    "name": "@speakable.link/spellable-words",
+    "name": "@speakable.link/words",
     "main": "dist/index.js",
     "type": "module",
     "scripts": {
