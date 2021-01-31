@@ -1,4 +1,9 @@
-import { runFirestoreQuery, IStructuredQuery, toInt32 } from "./lib/firebase"
+import {
+    runFirestoreQuery,
+    IStructuredQuery,
+    toInt32,
+    toTimestamp,
+} from "./lib/firebase"
 
 addEventListener("fetch", (event) => {
     event.respondWith(handleRequest(event).catch((err) => handleError(err)))
@@ -39,16 +44,38 @@ function handleError(error: Error) {
     }
 }
 
+function getDateHoursAgo(numberOfHours: number) {
+    return new Date(new Date().getTime() - numberOfHours * 3600 * 1000)
+}
+
 async function getRedirectResponse(pathname: string): Promise<Response | null> {
     const word = pathname.substr(1) // removes preceding slash
 
     const results = await runFirestoreQuery({
         from: [{ collectionId: "links" }],
         where: {
-            fieldFilter: {
-                field: { fieldPath: "word" },
-                op: "EQUAL",
-                value: { stringValue: word },
+            compositeFilter: {
+                op: "AND",
+                filters: [
+                    {
+                        fieldFilter: {
+                            field: { fieldPath: "expiration" },
+                            op: "GREATER_THAN_OR_EQUAL",
+                            value: {
+                                timestampValue: toTimestamp(
+                                    getDateHoursAgo(12)
+                                ),
+                            },
+                        },
+                    },
+                    {
+                        fieldFilter: {
+                            field: { fieldPath: "word" },
+                            op: "EQUAL",
+                            value: { stringValue: word },
+                        },
+                    },
+                ],
             },
         },
         limit: toInt32(1),
@@ -56,8 +83,6 @@ async function getRedirectResponse(pathname: string): Promise<Response | null> {
 
     const redirectUrl: string | null =
         results?.[0]?.document?.fields?.redirectUrl?.stringValue
-
-    return new Response(JSON.stringify(results))
 
     if (redirectUrl) {
         return new Response(null, {

@@ -7,7 +7,11 @@ import type {
 export type IStructuredQuery = firestore.IBundledQuery["structuredQuery"]
 
 export function toInt32(value: number): google.protobuf.IInt32Value {
-    return value as google.protobuf.IInt32Value
+    return { value: Math.floor(value) }
+}
+
+export function toTimestamp(value: Date): google.protobuf.ITimestamp {
+    return { seconds: Math.floor(value.getTime() / 1000) }
 }
 
 export async function runFirestoreQuery(structuredQuery: IStructuredQuery) {
