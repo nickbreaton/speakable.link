@@ -1,0 +1,3 @@
+declare const FIREBASE_SERVICE_ACCOUNT_PART_1: string
+declare const FIREBASE_SERVICE_ACCOUNT_PART_2: string
+declare const FIREBASE_SERVICE_ACCOUNT_PART_3: string

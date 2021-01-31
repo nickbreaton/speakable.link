@@ -4,7 +4,3 @@ account_id = "f3541ea32e5c687173fa7b87bfdf4529"
 workers_dev = true
 route = ""
 zone_id = ""
-vars = { ENVIRONMENT = "dev" }
-
-[env.production]
-vars = { ENVIRONMENT = "production" }

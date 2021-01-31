@@ -1,10 +1,8 @@
-declare const ENVIRONMENT: "dev" | "production"
+import { runFirestoreQuery, IStructuredQuery, toInt32 } from "./lib/firebase"
 
 addEventListener("fetch", (event) => {
     event.respondWith(handleRequest(event).catch((err) => handleError(err)))
 })
-
-// REQUEST HANDLERS
 
 async function handleRequest(event: FetchEvent) {
     const { pathname } = new URL(event.request.url)
@@ -34,23 +32,37 @@ function handleResourceRequest(event: FetchEvent) {
 }
 
 function handleError(error: Error) {
-    if (ENVIRONMENT === "production") {
+    if (process.env.NODE_ENV === "production") {
         return new Response("Internal Server Error", { status: 500 })
     } else {
         return new Response(error.message)
     }
 }
 
-// HELPERS
-
 async function getRedirectResponse(pathname: string): Promise<Response | null> {
     const word = pathname.substr(1) // removes preceding slash
 
-    // TODO: fetch from firebase database
-    if (word === "minecraft") {
+    const results = await runFirestoreQuery({
+        from: [{ collectionId: "links" }],
+        where: {
+            fieldFilter: {
+                field: { fieldPath: "word" },
+                op: "EQUAL",
+                value: { stringValue: word },
+            },
+        },
+        limit: toInt32(1),
+    })
+
+    const redirectUrl: string | null =
+        results?.[0]?.document?.fields?.redirectUrl?.stringValue
+
+    return new Response(JSON.stringify(results))
+
+    if (redirectUrl) {
         return new Response(null, {
             status: 303,
-            headers: { Location: "http://minecraft.net" },
+            headers: { Location: redirectUrl },
         })
     }
 
