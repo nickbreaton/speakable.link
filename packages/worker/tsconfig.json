@@ -3,6 +3,7 @@
         "strict": true,
         "rootDir": "src",
         "outDir": "dist",
+        "target": "ES2018",
         "lib": ["esnext", "webworker"],
         "types": ["@cloudflare/workers-types"]
     }

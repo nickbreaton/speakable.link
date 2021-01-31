@@ -1,6 +1,28 @@
 declare const ENVIRONMENT: "dev" | "production"
 
-function fetchResource(event: FetchEvent) {
+addEventListener("fetch", (event) => {
+    event.respondWith(handleRequest(event).catch((err) => handleError(err)))
+})
+
+// REQUEST HANDLERS
+
+async function handleRequest(event: FetchEvent) {
+    const { pathname } = new URL(event.request.url)
+
+    if (pathname === "/") {
+        return handleResourceRequest(event)
+    }
+
+    const redirectResponse = await getRedirectResponse(pathname)
+
+    if (redirectResponse) {
+        return redirectResponse
+    }
+
+    return handleResourceRequest(event)
+}
+
+function handleResourceRequest(event: FetchEvent) {
     const url = new URL(event.request.url)
     url.hostname = "speakable-link.firebaseapp.com"
     url.port = "443"
@@ -11,19 +33,6 @@ function fetchResource(event: FetchEvent) {
     return fetch(request)
 }
 
-async function handleRequest(event: FetchEvent) {
-    if (event.request.url.includes("hello")) {
-        return new Response(null, {
-            status: 303,
-            headers: {
-                Location: "https://www.bing.com",
-            },
-        })
-    }
-
-    return await fetchResource(event)
-}
-
 function handleError(error: Error) {
     if (ENVIRONMENT === "production") {
         return new Response("Internal Server Error", { status: 500 })
@@ -32,6 +41,18 @@ function handleError(error: Error) {
     }
 }
 
-addEventListener("fetch", (event) => {
-    event.respondWith(handleRequest(event).catch((err) => handleError(err)))
-})
+// HELPERS
+
+async function getRedirectResponse(pathname: string): Promise<Response | null> {
+    const word = pathname.substr(1) // removes preceding slash
+
+    // TODO: fetch from firebase database
+    if (word === "minecraft") {
+        return new Response(null, {
+            status: 303,
+            headers: { Location: "http://minecraft.net" },
+        })
+    }
+
+    return null
+}
