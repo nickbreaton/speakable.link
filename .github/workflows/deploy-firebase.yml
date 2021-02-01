@@ -8,15 +8,16 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - run: npm ci
+            - name: Build client
+              run: npm ci && npm run build
               working-directory: packages/client
-            - run: npm run build
-              working-directory: packages/client
-            - run: npm ci
+            - name: Build words
+              run: npm ci && npm run build
+              working-directory: packages/words
+            - name: Build functions
+              run: npm ci && npm run build
               working-directory: packages/functions
-            - run: npm run build
-              working-directory: packages/functions
-            - name: GitHub Action for Firebase
+            - name: Deploy to Firebase
               uses: w9jds/firebase-action@v2.0.0
               with:
                   args: deploy --only hosting,functions
