@@ -14,9 +14,6 @@
 		]
 	},
 	"functions": {
-		"predeploy": [
-			"npm --prefix pacakges/functions run build"
-		],
 		"source": "packages/functions"
 	}
 }
