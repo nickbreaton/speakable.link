@@ -1,8 +1,8 @@
 {
   "name": "functions",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack -w",
+    "build": "webpack --mode=production",
+    "watch": "webpack --mode=development -w",
     "emulate": "firebase emulators:start --only functions"
   },
   "engines": {

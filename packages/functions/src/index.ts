@@ -12,7 +12,12 @@ function withUser(
     ) => void
 ) {
     return async (req: functions.https.Request, res: functions.Response) => {
-        res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080")
+        res.setHeader(
+            "Access-Control-Allow-Origin",
+            process.env.NODE_ENV === "production"
+                ? "https://speakable.link"
+                : "http://localhost:8080"
+        )
         res.setHeader("Access-Control-Allow-Methods", "*")
         res.setHeader("Access-Control-Allow-Headers", "*")
 
