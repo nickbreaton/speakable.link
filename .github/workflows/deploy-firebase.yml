@@ -11,8 +11,6 @@ jobs:
             - uses: actions/setup-node@v2
               with:
                   node-version: "15"
-            - name: Setup tmate session
-              uses: mxschmitt/action-tmate@v3
             - name: Build client
               run: npm ci && npm run build
               working-directory: packages/client

@@ -8,6 +8,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: "15"
             - run: npm ci
               working-directory: packages/worker
             - run: npm i --no-save @cloudflare/wrangler # already installed locally as well due to Apple M1 workaround
