@@ -20,6 +20,9 @@ jobs:
             - name: Build functions
               run: npm ci && npm run build
               working-directory: packages/functions
+            - name: Remove local dependencies from functions
+              run: npm rm @speakable.link/words
+              working-directory: packages/functions
             - name: Deploy to Firebase
               uses: w9jds/firebase-action@v2.0.0
               with:
