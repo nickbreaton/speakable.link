@@ -12,11 +12,13 @@ jobs:
               working-directory: packages/client
             - run: npm run build
               working-directory: packages/client
-            - uses: FirebaseExtended/action-hosting-deploy@v0
+            - run: npm ci
+              working-directory: packages/functions
+            - run: npm run build
+              working-directory: packages/functions
+            - name: GitHub Action for Firebase
+              uses: w9jds/firebase-action@v2.0.0
               with:
-                  repoToken: "${{ secrets.GITHUB_TOKEN }}"
-                  firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_SPEAKABLE_LINK }}"
-                  channelId: live
-                  projectId: speakable-link
+                  args: deploy --only hosting,functions
               env:
-                  FIREBASE_CLI_PREVIEWS: hostingchannels
+                  FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

@@ -3,8 +3,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w",
-    "emulate": "firebase emulators:start --only functions",
-    "deploy": "firebase deploy --only functions"
+    "emulate": "firebase emulators:start --only functions"
   },
   "engines": {
     "node": "15"

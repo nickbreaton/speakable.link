@@ -13,7 +13,7 @@ module.exports = {
             watch: false,
         },
         {
-            name: "functions:serve",
+            name: "functions:emulate",
             script: "npm run emulate",
             cwd: "./packages/functions",
             watch: ["./dist"],
