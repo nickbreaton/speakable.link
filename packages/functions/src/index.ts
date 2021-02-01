@@ -1,10 +1,7 @@
 import * as functions from "firebase-functions"
 import * as firebase from "firebase-admin"
-import { words } from "./tmp-words"
+import { words } from "@speakable.link/words"
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
 firebase.initializeApp()
 
 function withUser(

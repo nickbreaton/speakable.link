@@ -1,0 +1,28 @@
+{
+  "name": "functions",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack -w",
+    "start": "npm run build && firebase emulators:start --only functions",
+    "deploy": "firebase deploy --only functions"
+  },
+  "engines": {
+    "node": "15"
+  },
+  "main": "dist/index.js",
+  "dependencies": {
+    "@speakable.link/words": "../words",
+    "firebase-admin": "^9.4.2",
+    "firebase-functions": "^3.11.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0",
+    "firebase-tools": "^9.2.2",
+    "ts-loader": "^8.0.14",
+    "typescript": "^3.8.0",
+    "webpack": "^5.19.0",
+    "webpack-cli": "^4.4.0",
+    "webpack-node-externals": "^2.5.2"
+  },
+  "private": true
+}

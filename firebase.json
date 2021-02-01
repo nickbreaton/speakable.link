@@ -1,21 +1,22 @@
 {
-  "hosting": {
-    "public": "packages/client/build",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  },
-  "functions": {
-    "predeploy": [
-      "npm --prefix pacakges/functions run build"
-    ]
-  }
+	"hosting": {
+		"public": "packages/client/build",
+		"ignore": [
+			"firebase.json",
+			"**/.*",
+			"**/node_modules/**"
+		],
+		"rewrites": [
+			{
+				"source": "**",
+				"destination": "/index.html"
+			}
+		]
+	},
+	"functions": {
+		"predeploy": [
+			"npm --prefix pacakges/functions run build"
+		],
+		"source": "packages/functions"
+	}
 }

@@ -159,7 +159,6 @@ bit
 bitter
 black
 blame
-blank
 blender
 blind
 blood
@@ -1155,7 +1154,6 @@ normal
 north
 northern
 note
-nothing
 notice
 notion
 novel
@@ -1374,7 +1372,6 @@ quick
 quickly
 quiet
 quit
-quote
 rabbit
 raccoon
 race
