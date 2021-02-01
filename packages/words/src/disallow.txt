@@ -8,3 +8,5 @@ comma
 period
 slash
 quote
+nothing
+blank

@@ -25,6 +25,7 @@ export const auth = readable<StoreValue>({ isPending: true }, (set) => {
     firebase.initializeApp({
         authDomain: "speakable-link.firebaseapp.com",
         apiKey: "AIzaSyACqud1a6xpqh_QWklo4Qm1B-0bomhUrEM",
+        projectId: "speakable-link",
     })
 
     firebase.auth().onAuthStateChanged(function (user) {

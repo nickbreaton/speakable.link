@@ -1,5 +1,6 @@
 <script lang="ts">
     import "firebase/auth"
+    import "firebase/firestore"
     import { auth } from './stores/auth'
     import { Route } from 'tinro'
     import Dashboard from './pages/Dashboard.svelte';
