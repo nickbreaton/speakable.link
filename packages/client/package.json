@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "snowpack dev",
-    "build": "rimraf build && snowpack build"
+    "build": "NODE_ENV=production rimraf build && snowpack build"
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^3.1.3",

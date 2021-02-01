@@ -1,6 +1,12 @@
 import { auth } from "../stores/auth"
 import { get } from "svelte/store"
 
+function getBaseUrl() {
+    return (import.meta as any).env.NODE_ENV === "production"
+        ? "https://us-central1-speakable-link.cloudfunctions.net/"
+        : "http://localhost:5001/speakable-link/us-central1/"
+}
+
 export async function request<ResponseData = void>(
     handler: string,
     body?: any,
@@ -15,15 +21,11 @@ export async function request<ResponseData = void>(
         },
     }
 
-    console.log({ body })
     if (body !== undefined) {
         init.body = JSON.stringify(body)
     }
 
-    return fetch(
-        "http://localhost:5001/speakable-link/us-central1/" + handler,
-        init
-    ).then((res) => res.json())
+    return fetch(getBaseUrl() + handler, init).then((res) => res.json())
 }
 
 export function shortenLink(link: string) {

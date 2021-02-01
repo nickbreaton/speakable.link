@@ -2,6 +2,7 @@
     "extends": "@tsconfig/svelte/tsconfig.json",
     "compilerOptions": {
         "strict": true,
-        "noUncheckedIndexedAccess": true
+        "noUncheckedIndexedAccess": true,
+        "module": "ES2020"
     }
 }
