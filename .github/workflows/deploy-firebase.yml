@@ -8,6 +8,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
+            - name: Setup tmate session
+              uses: mxschmitt/action-tmate@v3
             - name: Build client
               run: npm ci && npm run build
               working-directory: packages/client
