@@ -3,7 +3,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w",
-    "start": "npm run build && firebase emulators:start --only functions",
+    "emulate": "firebase emulators:start --only functions",
     "deploy": "firebase deploy --only functions"
   },
   "engines": {

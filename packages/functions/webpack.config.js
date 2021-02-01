@@ -8,16 +8,13 @@ module.exports = {
     externalsPresets: { node: true },
     output: {
         filename: "index.js",
+        libraryTarget: "commonjs",
     },
     resolve: {
-        // Add `.ts` and `.tsx` as a resolvable extension.
         extensions: [".ts", ".tsx", ".js"],
     },
     module: {
-        rules: [
-            // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-            { test: /\.ts$/, loader: "ts-loader" },
-        ],
+        rules: [{ test: /\.ts$/, loader: "ts-loader" }],
     },
     externals: [
         nodeExternals({

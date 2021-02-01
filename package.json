@@ -1,0 +1,10 @@
+{
+  "name": "@speakable.link/local",
+  "scripts": {
+    "start": "pm2 start ecosystem.config.js",
+    "stop": "pm2 kill"
+  },
+  "devDependencies": {
+    "pm2": "^4.5.4"
+  }
+}
