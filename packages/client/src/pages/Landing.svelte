@@ -5,7 +5,7 @@
 
 <div class="grid place-items-center text-center p-8 text-gray-900">
     <h1 class="font-display text-3xl relative mb-4">
-        speakable.link (testing 1)
+        speakable.link
     </h1>
     <span class="text-lg mb-4">
         Generate easy-to-speak links instantly!
